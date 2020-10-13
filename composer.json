@@ -1,0 +1,43 @@
+{
+  "name": "mp3000mp/tos-bundle",
+  "description": "Simple terms of service bundle.",
+  "type": "symfony-bundle",
+  "license": "Apache 2.0",
+  "autoload": {
+    "psr-4": {
+      "mp3000mp\\TOSBundle\\": ""
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "mp3000mp\\TOSBundle\\Tests\\": "tests/"
+    }
+  },
+  "keywords": [
+    "TOS", "terms of service"
+  ],
+  "homepage": "https://github.com/mp3000mp/TOSBundle",
+  "authors": [
+    {
+      "name": "mp3000mp",
+      "email": "moussadedijon@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.2",
+    "symfony/framework-bundle": "^5.1"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^2.16",
+    "phpstan/phpstan": "^0.12.48",
+    "phpunit/phpunit": "^9.4",
+    "php-coveralls/php-coveralls": "^2.4"
+  },
+  "scripts": {
+    "cs": "php-cs-fixer fix --dry-run --allow-risky=yes --config=./.php_cs.dist",
+    "csf": "php-cs-fixer fix --allow-risky=yes --config=./.php_cs.dist",
+    "ps": "phpstan analyse -c phpstan.neon",
+    "tu": "phpunit --no-coverage --testdox ./tests/",
+    "tuc": "phpunit --testdox ./tests/"
+  }
+}

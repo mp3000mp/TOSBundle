@@ -1,0 +1,7 @@
+parameters:
+  checkMissingIterableValueType: false
+  level: 6
+  paths:
+   - .
+  excludes_analyse:
+   - vendor
