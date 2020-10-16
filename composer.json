@@ -6,7 +6,10 @@
   "autoload": {
     "psr-4": {
       "mp3000mp\\TOSBundle\\": ""
-    }
+    },
+    "exclude-from-classmap": [
+      "/Tests/"
+    ]
   },
   "autoload-dev": {
     "psr-4": {
@@ -25,13 +28,16 @@
   ],
   "require": {
     "php": ">=7.2",
-    "symfony/framework-bundle": "^5.1"
+    "symfony/framework-bundle": "^5.1",
+    "doctrine/doctrine-bundle": "^2.1",
+    "symfony/security-bundle": "^5.1"
   },
   "require-dev": {
     "friendsofphp/php-cs-fixer": "^2.16",
     "phpstan/phpstan": "^0.12.48",
     "phpunit/phpunit": "^9.4",
-    "php-coveralls/php-coveralls": "^2.4"
+    "php-coveralls/php-coveralls": "^2.4",
+    "symfony/phpunit-bridge": "^5.1"
   },
   "scripts": {
     "cs": "php-cs-fixer fix --dry-run --allow-risky=yes --config=./.php_cs.dist",
