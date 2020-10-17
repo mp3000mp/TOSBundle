@@ -15,16 +15,17 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-            ->arrayNode('doctrine')
-            ->children()
-            ->arrayNode('user')
-            ->children()
-            ->scalarNode('resolve_from')
-            ->end()
-            ->scalarNode('resolve_to')
-            ->end()
-            ->end()
-            ->end()
+                ->arrayNode('doctrine')
+                ->children()
+                    ->arrayNode('user')
+                    ->children()
+                        ->scalarNode('resolve_to')
+                        ->info('The class to which the TermsOfServiceSignature entity user relationship will be mapped. '.
+                            'It must implement the UserInterface Symfony\Component\Security\Core\User\UserInterface interface.')
+                        ->isRequired()
+                        ->end()
+                    ->end()
+                ->end()
             ->end()
             ;
 

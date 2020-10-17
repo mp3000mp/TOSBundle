@@ -1,0 +1,3 @@
+mp3000mp_tos:
+  path: /
+  controller: mp3000mp\TOSBundle\Controller\Mp3000mpTOSController::index
