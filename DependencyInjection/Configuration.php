@@ -14,6 +14,7 @@ class Configuration implements ConfigurationInterface
         $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
+            ->addDefaultsIfNotSet()
             ->children()
                 ->arrayNode('doctrine')
                 ->children()

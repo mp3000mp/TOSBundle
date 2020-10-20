@@ -1,0 +1,3 @@
+doctrine:
+  user:
+    resolve_to: testoui

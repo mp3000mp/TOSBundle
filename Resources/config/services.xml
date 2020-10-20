@@ -3,12 +3,12 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services
         http://symfony.com/schema/dic/services/services-1.0.xsd">
-    <parameters>
-        <parameter key="mp3000mp_tos.doctrine.user.resolve_to">App\Entity\User</parameter>
-    </parameters>
     <services>
         <service id="mp3000mp.tos_bundle.tos_bundle" class="mp3000mp\TOSBundle\Mp3000mpTOSBundle" public="false" />
         <service id="mp3000mp\TOSBundle\Mp3000mpTOSBundle" alias="mp3000mp.tos_bundle.tos_bundle" />
-        <service id="mp3000mp.tos_bundle.controller.mp3000mp_tos_bundle_controller" class="mp3000mp\TOSBundle\Controller\Mp3000mpTOSController" public="true" />
+        <service id="mp3000mp.tos_bundle.controller.mp3000mp_tos_bundle_controller" class="mp3000mp\TOSBundle\Controller\Mp3000mpTOSController" public="true">
+            <tag name="container.service_subscriber" />
+        </service>
+        <service id="mp3000mp\TOSBundle\Controller\Mp3000mpTOSController" alias="mp3000mp.tos_bundle.controller.mp3000mp_tos_bundle_controller" />
     </services>
 </container>

@@ -37,7 +37,8 @@
     "phpstan/phpstan": "^0.12.48",
     "phpunit/phpunit": "^9.4",
     "php-coveralls/php-coveralls": "^2.4",
-    "symfony/phpunit-bridge": "^5.1"
+    "symfony/phpunit-bridge": "^5.1",
+    "symfony/browser-kit": "^5.1"
   },
   "scripts": {
     "cs": "php-cs-fixer fix --dry-run --allow-risky=yes --config=./.php_cs.dist",

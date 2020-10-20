@@ -4,9 +4,13 @@
         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.4/phpunit.xsd"
         backupGlobals="false"
         colors="true"
-        bootstrap="./tests/bootstrap.php"
+        bootstrap="./vendor/autoload.php"
         verbose="true"
 >
+    <php>
+        <server name="KERNEL_CLASS" value="mp3000mp\TOSBundle\Tests\TestingKernel" />
+        <server name ="APP_ENV" value="test" />
+    </php>
     <testsuites>
         <testsuite name="Unit tests">
             <directory>./tests/</directory>
