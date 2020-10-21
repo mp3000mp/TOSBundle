@@ -5,7 +5,7 @@
   "license": "Apache 2.0",
   "autoload": {
     "psr-4": {
-      "mp3000mp\\TOSBundle\\": ""
+      "Mp3000mp\\TOSBundle\\": ""
     },
     "exclude-from-classmap": [
       "/Tests/"
@@ -13,7 +13,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "mp3000mp\\TOSBundle\\Tests\\": "tests/"
+      "Mp3000mp\\TOSBundle\\Tests\\": "tests/"
     }
   },
   "keywords": [

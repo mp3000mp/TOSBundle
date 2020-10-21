@@ -1,6 +1,6 @@
 <?php
 
-namespace mp3000mp\TOSBundle\Tests\DependencyInjection;
+namespace Mp3000mp\TOSBundle\Tests\DependencyInjection;
 
 use mp3000mp\TOSBundle\DependencyInjection\Configuration;
 use PHPUnit\Framework\TestCase;
@@ -29,11 +29,7 @@ class ConfigurationTest extends TestCase
     public function testCustomConfig(): void
     {
         $dataConfig = [
-            'doctrine' => [
-                'user' => [
-                    'resolve_to' => 'App\\Entity\\User',
-                ],
-            ],
+            'user_provider' => 'App\\Entity\\User',
         ];
 
         $treeBuilder = $this->configuration->getConfigTreeBuilder();

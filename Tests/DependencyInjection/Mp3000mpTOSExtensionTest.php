@@ -1,6 +1,6 @@
 <?php
 
-namespace mp3000mp\TOSBundle\Tests\DependencyInjection;
+namespace Mp3000mp\TOSBundle\Tests\DependencyInjection;
 
 use mp3000mp\TOSBundle\DependencyInjection\Mp3000mpTOSExtension;
 use PHPUnit\Framework\TestCase;
@@ -12,7 +12,7 @@ class Mp3000mpTOSExtensionTest extends TestCase
     public static function parameterValues()
     {
         return [
-            ['mp3000mp_tos.doctrine.user.resolve_to', 'App\\Entity\\User'],
+            ['mp3000mp_tos.user_provider', 'App\\Entity\\User'],
         ];
     }
 
@@ -23,11 +23,7 @@ class Mp3000mpTOSExtensionTest extends TestCase
     {
         $extension = new Mp3000mpTOSExtension();
         $dataConfig = [
-            'doctrine' => [
-                'user' => [
-                    'resolve_to' => $expected,
-                ],
-            ],
+            'user_provider' => $expected
         ];
 
         $extension->load([$dataConfig], $container = $this->getContainer());

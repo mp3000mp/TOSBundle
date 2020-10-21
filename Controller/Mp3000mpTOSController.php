@@ -1,6 +1,6 @@
 <?php
 
-namespace mp3000mp\TOSBundle\Controller;
+namespace Mp3000mp\TOSBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 

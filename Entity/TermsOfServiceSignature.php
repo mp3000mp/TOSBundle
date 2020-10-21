@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace mp3000mp\TOSBundle\Entity;
+namespace Mp3000mp\TOSBundle\Entity;
 
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
