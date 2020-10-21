@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Mp3000mp\TOSBundle\Entity;
 
 use DateTime;
-use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
@@ -13,31 +12,24 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class TermsOfServiceSignature
 {
+
     /**
      * @var int
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
      */
     private $id;
 
     /**
      * @var UserInterface
-     * @ORM\ManyToOne(targetEntity="Symfony\Component\Security\Core\User\UserInterface")
-     * @ORM\JoinColumn(nullable=false)
      */
     private $user;
 
     /**
      * @var TermsOfService
-     * @ORM\ManyToOne(targetEntity="mp3000mp\TOSBundle\Entity\TermsOfService", inversedBy="terms_of_service_signatures")
-     * @ORM\JoinColumn(nullable=false)
      */
     private $terms_of_service;
 
     /**
      * @var DateTime
-     * @ORM\Column(type="datetime")
      */
     private $signed_at;
 

@@ -36,7 +36,7 @@ class Mp3000mpTOSExtension extends Extension implements PrependExtensionInterfac
         $doctrineConfig['orm']['mappings'][] = array(
             'name' => 'Mp3000mpTOSBundle',
             'is_bundle' => true,
-            'type' => 'yaml',
+            'type' => 'xml',
             'prefix' => 'Mp3000mp\TOSBundle\Entity'
         );
         $container->prependExtensionConfig('doctrine', $doctrineConfig);

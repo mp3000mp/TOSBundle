@@ -5,30 +5,22 @@ declare(strict_types=1);
 namespace Mp3000mp\TOSBundle\Entity;
 
 use DateTime;
-use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity
- */
 class TermsOfService
 {
+
     /**
      * @var int
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
      */
     private $id;
 
     /**
      * @var DateTime
-     * @ORM\Column(type="date")
      */
     private $published_at;
 
     /**
      * @var TermsOfServiceSignature
-     * @ORM\OneToMany(targetEntity="mp3000mp\TOSBundle\Entity\TermsOfServiceSignature", mappedBy="terms_of_service")
      */
     private $terms_of_service_signatures;
 

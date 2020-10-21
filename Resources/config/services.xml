@@ -5,14 +5,14 @@
         http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
         <!-- Service -->
-        <service id="mp3000mp.tos_bundle.tos_bundle" class="mp3000mp\TOSBundle\Mp3000mpTOSBundle" public="false" />
+        <service id="mp3000mp.tos_bundle" class="Mp3000mp\TOSBundle\Mp3000mpTOSBundle" public="false" />
 
         <!-- aliases -->
-        <service id="mp3000mp\TOSBundle\Mp3000mpTOSBundle" alias="mp3000mp.tos_bundle.tos_bundle" />
+        <service id="Mp3000mp\TOSBundle\Mp3000mpTOSBundle" alias="mp3000mp.tos_bundle" />
         <!-- End Service -->
 
         <!-- Controller -->
-        <service id="msalsas_voting.controller" class="mp3000mp\TOSBundle\Controller\Mp3000mpTOSController" public="true" />
+        <service id="mp3000mp.tos_bundle.controller.mp3000mp_tos_bundle_controller" class="Mp3000mp\TOSBundle\Controller\Mp3000mpTOSController" public="true" />
 
         <!-- aliases -->
         <service id="mp3000mp\TOSBundle\Controller\Mp3000mpTOSController" alias="mp3000mp.tos_bundle.controller.mp3000mp_tos_bundle_controller" public="true"/>
