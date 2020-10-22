@@ -19,9 +19,7 @@ todo
 You can define the `User` class to be used as relationship with TermsOfSericeSignature entity in `config/package/mp3000mp_tos.yaml`
 ```
 mp3000mp_tos:
-  doctrine:
-    user:
-      resolve_to: App\Entity\User
+  user_provider: App\Entity\User
 ```
 
 ### Routes
@@ -35,7 +33,7 @@ mp3000mp_tos:
 
 ### Templates
 
-You can override all templates located in `vendor/mp3000mp/TOSBundle/Resources/views/` in your own project directory `src/templates/bundles/Mp3000mpTOSBundle/`
+You can override all templates located in `vendor/Mp3000mp/TOSBundle/Resources/views/` in your own project directory `src/templates/bundles/Mp3000mpTOSBundle/`
 
 ## License
 

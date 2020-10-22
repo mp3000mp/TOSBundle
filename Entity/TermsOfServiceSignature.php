@@ -7,9 +7,6 @@ namespace Mp3000mp\TOSBundle\Entity;
 use DateTime;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-/**
- * @ORM\Entity
- */
 class TermsOfServiceSignature
 {
 

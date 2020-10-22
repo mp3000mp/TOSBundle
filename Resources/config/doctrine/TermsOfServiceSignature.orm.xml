@@ -4,21 +4,18 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                   http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="Mp3000mp\TOSBundle\Entity\TermsOfService" table="mp3000_terms_of_service" repository-class="Mp3000mp\TOSBundle\Entity\TermsOfServiceRepository">
+    <entity name="Mp3000mp\TOSBundle\Entity\TermsOfServiceSignature" table="mp3000mp_terms_of_service_signature" repository-class="Mp3000mp\TOSBundle\Entity\TermsOfServiceSignatureRepository">
         <id name="id" type="integer"><generator strategy="AUTO"/></id>
 
         <field name="signed_at" column="signed_at" type="datetime" />
 
+
         <many-to-one field="user" target-entity="Symfony\Component\Security\Core\User\UserInterface">
-            <join-column name="user_id"
-                         referenced-column-name="id"
-                         on-delete="CASCADE" />
+            <join-column on-delete="CASCADE" />
         </many-to-one>
 
-        <many-to-one field="terms_of_service" target-entity="\Mp3000mp\TOSBundle\Entity\TermsOfService">
-            <join-column name="terms_of_service_id"
-                         referenced-column-name="id"
-                         on-delete="CASCADE" />
+        <many-to-one field="terms_of_service" target-entity="Mp3000mp\TOSBundle\Entity\TermsOfService" inversed-by="terms_of_service_signatures">
+            <join-column on-delete="CASCADE" />
         </many-to-one>
     </entity>
 

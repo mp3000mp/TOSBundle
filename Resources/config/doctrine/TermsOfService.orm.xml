@@ -4,13 +4,15 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                   http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="Mp3000mp\TOSBundle\Entity\TermsOfService" table="mp3000_terms_of_service" repository-class="Mp3000mp\TOSBundle\Entity\TermsOfServiceRepository">
+    <entity name="Mp3000mp\TOSBundle\Entity\TermsOfService" table="mp3000mp_terms_of_service" repository-class="Mp3000mp\TOSBundle\Entity\TermsOfServiceRepository">
         <id name="id" type="integer"><generator strategy="AUTO"/></id>
 
         <field name="published_at" column="published_at" type="datetime" />
 
-        <one-to-many field="terms_of_service_signatures" target-entity="\Mp3000mp\TOSBundle\Entity\TermsOfServiceSignature">
-            <join-column mapped-by="terms_of_service" />
+        <one-to-many field="terms_of_service_signatures" target-entity="TermsOfServiceSignature" mapped-by="terms_of_service">
+            <cascade>
+                <cascade-persist/>
+            </cascade>
         </one-to-many>
     </entity>
 

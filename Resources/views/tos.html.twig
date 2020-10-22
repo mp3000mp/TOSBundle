@@ -1,5 +1,22 @@
 {% extends '@Mp3000mpTOS/layout.html.twig' %}
 
-{% block body %}
-    <h2>salut</h2>
+{% block mp3000mp_tos %}
+<pre style="background-color: #3f4458; color: white;"><code>
+// src/templates/bundles/Mp3000mpTOSBundle/layout.html.twig
+&lt;div class="container"&gt;
+        {{ '{% block mp3000mp_tos %}{% endblock %}' }}
+&lt;/div&gt;
+</code></pre>
+
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <form method="post" action="/tos/">
+            <p style="color: red; display: {{ error is defined ? 'block' : 'none' }}">{{ 'submit_error'|trans({}, 'Mp3000mpTOSBundle') }}</p>
+            <label for="mp3000mp-tos">
+                <input type="checkbox" name="mp3000mp-tos" id="mp3000mp-tos" value="agreed" required="required" />
+                {{ 'i_agree'|trans({}, 'Mp3000mpTOSBundle') }}
+            </label>
+            <input type="submit" value="{{ 'submit_button_label'|trans({}, 'Mp3000mpTOSBundle') }}" />
+        </form>
+    {% endif %}
+
 {% endblock %}
