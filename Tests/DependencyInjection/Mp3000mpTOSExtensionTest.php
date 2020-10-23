@@ -2,14 +2,14 @@
 
 namespace Mp3000mp\TOSBundle\Tests\DependencyInjection;
 
-use mp3000mp\TOSBundle\DependencyInjection\Mp3000mpTOSExtension;
+use Mp3000mp\TOSBundle\DependencyInjection\Mp3000mpTOSExtension;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
 
 class Mp3000mpTOSExtensionTest extends TestCase
 {
-    public static function parameterValues()
+    public static function parameterValues(): array
     {
         return [
             ['mp3000mp_tos.user_provider', 'App\\Entity\\User'],
@@ -19,11 +19,11 @@ class Mp3000mpTOSExtensionTest extends TestCase
     /**
      * @dataProvider parameterValues
      */
-    public function testLoad($name, $expected)
+    public function testLoad(string $name, string $expected): void
     {
         $extension = new Mp3000mpTOSExtension();
         $dataConfig = [
-            'user_provider' => $expected
+            'user_provider' => $expected,
         ];
 
         $extension->load([$dataConfig], $container = $this->getContainer());
@@ -31,7 +31,7 @@ class Mp3000mpTOSExtensionTest extends TestCase
         self::assertEquals($expected, $container->getParameter($name));
     }
 
-    private function getContainer()
+    private function getContainer(): ContainerBuilder
     {
         return new ContainerBuilder(new ParameterBag([
             'kernel.debug' => false,

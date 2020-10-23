@@ -6,7 +6,9 @@
     <services>
         <!-- Service -->
         <service id="mp3000mp.tos_bundle" class="Mp3000mp\TOSBundle\Mp3000mpTOSBundle" public="false" />
-        <service id="mp3000mp.tos_bundle.tos_service" class="Mp3000mp\TOSBundle\Service\Mp3000mpTOSService" public="false" />
+        <service id="mp3000mp.tos_bundle.tos_service" class="Mp3000mp\TOSBundle\Service\Mp3000mpTOSService" public="false">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+        </service>
 
         <!-- aliases -->
         <service id="Mp3000mp\TOSBundle\Mp3000mpTOSBundle" alias="mp3000mp.tos_bundle" />
@@ -14,10 +16,16 @@
         <!-- End Service -->
 
         <!-- Controller -->
-        <service id="mp3000mp.tos_bundle.controller.mp3000mp_tos_bundle_controller" class="Mp3000mp\TOSBundle\Controller\Mp3000mpTOSController" public="true" />
+        <service id="mp3000mp.tos_bundle.controller.mp3000mp_tos_bundle_controller" class="Mp3000mp\TOSBundle\Controller\Mp3000mpTOSController" public="true">
+            <argument type="service" id="mp3000mp.tos_bundle.tos_service" />
+            <tag name="container.service_subscriber" />
+            <call method="setContainer">
+                <argument type="service" id="Psr\Container\ContainerInterface" />
+            </call>
+        </service>
 
         <!-- aliases -->
-        <service id="mp3000mp\TOSBundle\Controller\Mp3000mpTOSController" alias="mp3000mp.tos_bundle.controller.mp3000mp_tos_bundle_controller" public="true"/>
+        <service id="Mp3000mp\TOSBundle\Controller\Mp3000mpTOSController" alias="mp3000mp.tos_bundle.controller.mp3000mp_tos_bundle_controller" public="true"/>
         <!-- End Controller -->
     </services>
 </container>

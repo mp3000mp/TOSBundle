@@ -2,7 +2,7 @@
 
 namespace Mp3000mp\TOSBundle\Tests\DependencyInjection;
 
-use mp3000mp\TOSBundle\DependencyInjection\Configuration;
+use Mp3000mp\TOSBundle\DependencyInjection\Configuration;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

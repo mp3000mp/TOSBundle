@@ -13,7 +13,6 @@ class Mp3000mpTOSExtension extends Extension implements PrependExtensionInterfac
 {
     public function load(array $configs, ContainerBuilder $container): void
     {
-
         // services
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config/'));
         $loader->load('services.xml');
@@ -24,7 +23,7 @@ class Mp3000mpTOSExtension extends Extension implements PrependExtensionInterfac
         $container->setParameter('mp3000mp_tos.user_provider', $config['user_provider']);
     }
 
-    public function prepend(ContainerBuilder $container)
+    public function prepend(ContainerBuilder $container): void
     {
         $configs = $container->getExtensionConfig($this->getAlias());
 
@@ -33,12 +32,12 @@ class Mp3000mpTOSExtension extends Extension implements PrependExtensionInterfac
         // doctrine
         $doctrineConfig = [];
         $doctrineConfig['orm']['resolve_target_entities'][UserInterface::class] = $config['user_provider'];
-        $doctrineConfig['orm']['mappings'][] = array(
+        $doctrineConfig['orm']['mappings'][] = [
             'name' => 'Mp3000mpTOSBundle',
             'is_bundle' => true,
             'type' => 'xml',
             'prefix' => 'Mp3000mp\TOSBundle\Entity',
-        );
+        ];
         $container->prependExtensionConfig('doctrine', $doctrineConfig);
 
         // twig

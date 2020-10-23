@@ -5,3 +5,5 @@ parameters:
    - .
   excludes_analyse:
    - vendor
+   - var
+   - ci
