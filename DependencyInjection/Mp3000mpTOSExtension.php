@@ -2,6 +2,7 @@
 
 namespace Mp3000mp\TOSBundle\DependencyInjection;
 
+use Mp3000mp\TOSBundle\EventSubscriber\TermsOfServiceSubscriber;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
@@ -21,6 +22,9 @@ class Mp3000mpTOSExtension extends Extension implements PrependExtensionInterfac
         $config = $this->processConfiguration(new Configuration(), $configs);
 
         $container->setParameter('mp3000mp_tos.user_provider', $config['user_provider']);
+        $container->setParameter('mp3000mp_tos.kernel_event.authenticators', $config['kernel_event']['authenticators']);
+        $container->setParameter('mp3000mp_tos.kernel_event.priority', $config['kernel_event']['priority']);
+        TermsOfServiceSubscriber::$priority = $config['kernel_event']['priority'];
     }
 
     public function prepend(ContainerBuilder $container): void

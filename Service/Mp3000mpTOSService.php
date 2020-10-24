@@ -13,10 +13,19 @@ use Symfony\Component\Security\Guard\Token\PostAuthenticationGuardToken;
 
 class Mp3000mpTOSService
 {
+    /**
+     * @var string
+     */
     public const ROLE_TOS_SIGNED = 'MP3000MP_TOS_SIGNED';
-    public const ROUTE_TOS = 'mp3000mp_tos';
 
-    /** @var EntityManagerInterface */
+    /**
+     * @var array
+     */
+    public const ROUTES_TOS = ['mp3000mp_tos.show_last', 'mp3000mp_tos.post'];
+
+    /**
+     * @var EntityManagerInterface
+     */
     private $em;
 
     /**
@@ -49,7 +58,9 @@ class Mp3000mpTOSService
 
     public function addTOSSignedRole(TokenStorageInterface $tokenStorage, SessionInterface $session): void
     {
-        /** @var PostAuthenticationGuardToken $currentToken */
+        /**
+         * @var PostAuthenticationGuardToken $currentToken
+         */
         $currentToken = $tokenStorage->getToken();
         $roles = array_merge($currentToken->getRoleNames(), [self::ROLE_TOS_SIGNED]);
         $newToken = new PostAuthenticationGuardToken($currentToken->getUser(), $currentToken->getProviderKey(), $roles);
@@ -57,7 +68,7 @@ class Mp3000mpTOSService
         $session->set('_security_'.$currentToken->getProviderKey(), serialize($newToken));
     }
 
-    public function persisteSignature(TermsOfService $termsOfService, UserInterface $user): void
+    public function persisteSignature(TermsOfService $termsOfService, UserInterface $user): TermsOfServiceSignature
     {
         $tosSigned = new TermsOfServiceSignature();
         $tosSigned->setSignedAt(new \DateTime());
@@ -66,5 +77,7 @@ class Mp3000mpTOSService
 
         $this->em->persist($tosSigned);
         $this->em->flush();
+
+        return $tosSigned;
     }
 }

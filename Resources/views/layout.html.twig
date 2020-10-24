@@ -5,8 +5,22 @@
     <title>Mp3000mp TOS bundle layout</title>
 </head>
 <body>
-<h1>Mp3000mp TOS bundle layout</h1>
-<a href="https://symfony.com/doc/current/bundles/override.html#templates">Please override this layout</a>
-{% block mp3000mp_tos %}{% endblock %}
+
+<pre style="background-color: #3f4458; color: white;"><code>
+// src/templates/bundles/Mp3000mpTOSBundle/layout.html.twig
+
+&lt;div class="container"&gt;
+    &lt;h1&gt;Mp3000mp TOS bundle layout&lt;/h1&gt;
+    &lt;a href="https://symfony.com/doc/current/bundles/override.html#templates"&gt;Please override these templates&lt;/a&gt;
+    {{ '{% block mp3000mp_tos %}{% endblock %}' }}
+&lt;/div&gt;
+</code></pre>
+
+<div class="container">
+    <h1>Mp3000mp TOS bundle layout</h1>
+    <a href="https://symfony.com/doc/current/bundles/override.html#templates">Please override these templates</a>
+    {% block mp3000mp_tos %}{% endblock %}
+</div>
+
 </body>
 </html>

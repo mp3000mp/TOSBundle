@@ -26,7 +26,7 @@ class Mp3000mpTOSController extends AbstractController
         $lastSigned = $this->TOSService->getLastSignedTOS($this->getUser());
 
         return $this->render('@Mp3000mpTOS/tos.html.twig', [
-            'alreadySigned' => $lastSigned,
+            'alreadySigned' => null !== $lastSigned,
         ]);
     }
 

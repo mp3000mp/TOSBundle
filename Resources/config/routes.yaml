@@ -1,8 +1,8 @@
-tos_show:
+mp3000mp_tos.show_last:
   path: /
   controller: Mp3000mp\TOSBundle\Controller\Mp3000mpTOSController::index
   methods: GET
-tos_post:
+mp3000mp_tos.post:
   path: /
   controller: Mp3000mp\TOSBundle\Controller\Mp3000mpTOSController::sign
   methods: POST

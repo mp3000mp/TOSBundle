@@ -9,6 +9,13 @@
         <service id="mp3000mp.tos_bundle.tos_service" class="Mp3000mp\TOSBundle\Service\Mp3000mpTOSService" public="false">
             <argument type="service" id="doctrine.orm.entity_manager" />
         </service>
+        <service id="mp3000mp.tos_bundle.tos_event_subscriber" class="Mp3000mp\TOSBundle\EventSubscriber\TermsOfServiceSubscriber" public="false">
+            <argument type="service" id="security.token_storage" />
+            <argument type="service" id="router" />
+            <argument type="service" id="mp3000mp.tos_bundle.tos_service" />
+            <argument key="$authenticators">%mp3000mp_tos.kernel_event.authenticators%</argument>
+            <tag name="kernel.event_subscriber" />
+        </service>
 
         <!-- aliases -->
         <service id="Mp3000mp\TOSBundle\Mp3000mpTOSBundle" alias="mp3000mp.tos_bundle" />

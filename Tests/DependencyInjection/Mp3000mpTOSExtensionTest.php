@@ -12,6 +12,8 @@ class Mp3000mpTOSExtensionTest extends TestCase
     public static function parameterValues(): array
     {
         return [
+            ['mp3000mp_tos.kernel_event.authenticators', ['main']],
+            ['mp3000mp_tos.kernel_event.priority', -20],
             ['mp3000mp_tos.user_provider', 'App\\Entity\\User'],
         ];
     }
@@ -19,11 +21,15 @@ class Mp3000mpTOSExtensionTest extends TestCase
     /**
      * @dataProvider parameterValues
      */
-    public function testLoad(string $name, string $expected): void
+    public function testLoad(string $name, $expected): void
     {
         $extension = new Mp3000mpTOSExtension();
         $dataConfig = [
-            'user_provider' => $expected,
+            'kernel_event' => [
+                'authenticators' => ['main'],
+                'priority' => -20,
+            ],
+            'user_provider' => 'App\\Entity\\User',
         ];
 
         $extension->load([$dataConfig], $container = $this->getContainer());
