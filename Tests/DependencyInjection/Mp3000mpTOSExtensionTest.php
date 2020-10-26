@@ -20,6 +20,8 @@ class Mp3000mpTOSExtensionTest extends TestCase
 
     /**
      * @dataProvider parameterValues
+     *
+     * @param mixed $expected
      */
     public function testLoad(string $name, $expected): void
     {
@@ -46,5 +48,17 @@ class Mp3000mpTOSExtensionTest extends TestCase
             'kernel.environment' => 'test',
             'kernel.root_dir' => __DIR__.'/../../',
         ]));
+    }
+
+    // todo
+    /*public function testPrepend()
+    {
+
+    }*/
+
+    public function testGetAlias(): void
+    {
+        $extension = new Mp3000mpTOSExtension();
+        self::assertEquals('mp3000mp_tos', $extension->getAlias());
     }
 }

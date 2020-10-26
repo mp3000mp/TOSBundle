@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Mp3000mp\TOSBundle\EventSubscriber;
 
-use App\Entity\User;
 use Mp3000mp\TOSBundle\Service\Mp3000mpTOSService;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;

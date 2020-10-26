@@ -11,7 +11,6 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 class Mp3000mpTOSServiceTest extends TestCase
 {
-
     /**
      * @var EntityManager
      */
