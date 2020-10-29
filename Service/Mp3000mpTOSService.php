@@ -62,10 +62,11 @@ class Mp3000mpTOSService
          * @var PostAuthenticationGuardToken $currentToken
          */
         $currentToken = $tokenStorage->getToken();
+        $currentProviderKey = $currentToken->getProviderKey();
         $roles = array_merge($currentToken->getRoleNames(), [self::ROLE_TOS_SIGNED]);
-        $newToken = new PostAuthenticationGuardToken($currentToken->getUser(), $currentToken->getProviderKey(), $roles);
+        $newToken = new PostAuthenticationGuardToken($currentToken->getUser(), $currentProviderKey, $roles);
         $tokenStorage->setToken($newToken);
-        $session->set('_security_'.$currentToken->getProviderKey(), serialize($newToken));
+        $session->set('_security_'.$currentProviderKey, serialize($newToken));
     }
 
     public function persisteSignature(TermsOfService $termsOfService, UserInterface $user): TermsOfServiceSignature

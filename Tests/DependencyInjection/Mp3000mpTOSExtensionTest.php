@@ -3,9 +3,12 @@
 namespace Mp3000mp\TOSBundle\Tests\DependencyInjection;
 
 use Mp3000mp\TOSBundle\DependencyInjection\Mp3000mpTOSExtension;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 class Mp3000mpTOSExtensionTest extends TestCase
 {
@@ -34,7 +37,8 @@ class Mp3000mpTOSExtensionTest extends TestCase
             'user_provider' => 'App\\Entity\\User',
         ];
 
-        $extension->load([$dataConfig], $container = $this->getContainer());
+        $container = $this->getContainer();
+        $extension->load([$dataConfig], $container);
 
         self::assertEquals($expected, $container->getParameter($name));
     }
@@ -50,11 +54,22 @@ class Mp3000mpTOSExtensionTest extends TestCase
         ]));
     }
 
-    // todo
-    /*public function testPrepend()
+    public function testPrepend()
     {
+        $extension = new Mp3000mpTOSExtension();
 
-    }*/
+        /**
+         * @var ContainerBuilder|MockObject $container
+         */
+        $container = $this->getMockBuilder(ContainerBuilder::class)->disableOriginalConstructor()->getMock();
+        $container->expects(self::once())
+            ->method('getExtensionConfig')
+            ->willReturn(['mp3000mp_tos' => ['user_provider' => 'test']]);
+        $container->expects(self::once())
+            ->method('prependExtensionConfig');
+        $extension->prepend($container);
+
+    }
 
     public function testGetAlias(): void
     {

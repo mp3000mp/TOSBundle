@@ -7,6 +7,7 @@ namespace Mp3000mp\TOSBundle\Tests\EventSubscriber;
 use Mp3000mp\TOSBundle\Entity\TermsOfService;
 use Mp3000mp\TOSBundle\EventSubscriber\TermsOfServiceSubscriber;
 use Mp3000mp\TOSBundle\Service\Mp3000mpTOSService;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\ParameterBag;
 use Symfony\Component\HttpFoundation\Request;
@@ -30,22 +31,22 @@ class TermsOfServiceSubscriberTest extends TestCase
     private $authenticators = ['main'];
 
     /**
-     * @var TokenStorageInterface
+     * @var TokenStorageInterface|MockObject
      */
     private $tokenStorage;
 
     /**
-     * @var RouterInterface
+     * @var RouterInterface|MockObject
      */
     private $router;
 
     /**
-     * @var Mp3000mpTOSService
+     * @var Mp3000mpTOSService|MockObject
      */
     private $TOSService;
 
     /**
-     * @var RequestEvent
+     * @var RequestEvent|MockObject
      */
     private $event;
 
@@ -102,6 +103,9 @@ class TermsOfServiceSubscriberTest extends TestCase
 
     public function testOnKernelRequestAlreadyHasRole(): void
     {
+        /**
+         * @var UserInterface|MockObject $user
+         */
         $user = $this->getMockBuilder(UserInterface::class)->getMock();
         $token = new PostAuthenticationGuardToken($user, 'main', [Mp3000mpTOSService::ROLE_TOS_SIGNED]);
         $this->tokenStorage->expects(self::once())
