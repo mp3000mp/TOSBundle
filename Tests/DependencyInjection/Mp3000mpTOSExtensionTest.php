@@ -6,9 +6,7 @@ use Mp3000mp\TOSBundle\DependencyInjection\Mp3000mpTOSExtension;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 class Mp3000mpTOSExtensionTest extends TestCase
 {
@@ -54,7 +52,7 @@ class Mp3000mpTOSExtensionTest extends TestCase
         ]));
     }
 
-    public function testPrepend()
+    public function testPrepend(): void
     {
         $extension = new Mp3000mpTOSExtension();
 
@@ -68,7 +66,6 @@ class Mp3000mpTOSExtensionTest extends TestCase
         $container->expects(self::once())
             ->method('prependExtensionConfig');
         $extension->prepend($container);
-
     }
 
     public function testGetAlias(): void

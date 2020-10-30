@@ -1,8 +1,20 @@
 # TOSBundle
 
-[![In Progress](https://img.shields.io/badge/in%20progress-yes-red)](https://img.shields.io/badge/in%20progress-yes-red)
+Simple bundle that will help you forcing users to agree with terms of service before being able to use your application.
 
-todo
+[![In Progress](https://img.shields.io/badge/in%20progress-yes-red)](https://img.shields.io/badge/in%20progress-yes-red)
+[![Build Status](https://travis-ci.org/mp3000mp/TOSBundle.svg?branch=master)](https://travis-ci.org/mp3000mp/TOSBundle)
+[![Coverage Status](https://coveralls.io/repos/github/mp3000mp/TOSBundle/badge.svg?branch=master)](https://coveralls.io/github/mp3000mp/TOSBundle?branch=master)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
+ Table of Contents
+ -----------------
+ 
+  - [Documentation](#Documentation)
+  - [Installation](#Installation)
+  - [Configuration](#Configuration)
+  - [Licence](#Licence)
+  - [About](#About)
 
 ## Documentation
 
@@ -10,7 +22,9 @@ todo
 
 ## Installation
 
-todo
+```sh
+composer require mp3000mp/TOSBundle
+```
 
 ## Configuration
 
@@ -41,4 +55,4 @@ This bundle is under the Apache 2.0 license. See the complete license [in the bu
 
 ## About
 
-UserBundle is a [mp3000mp](https://github.com/mp3000mp) initiative.
+TOSBundle is a [mp3000mp](https://github.com/mp3000mp) initiative.

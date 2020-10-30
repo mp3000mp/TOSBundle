@@ -5,11 +5,9 @@ namespace Mp3000mp\TOSBundle\Tests\Service;
 use Doctrine\ORM\EntityManager;
 use Mp3000mp\TOSBundle\Entity\TermsOfService;
 use Mp3000mp\TOSBundle\Entity\TermsOfServiceRepository;
-use Mp3000mp\TOSBundle\EventSubscriber\TermsOfServiceSubscriber;
 use Mp3000mp\TOSBundle\Service\Mp3000mpTOSService;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -75,10 +73,10 @@ class Mp3000mpTOSServiceTest extends TestCase
         self::assertInstanceOf(TermsOfService::class, $tos);
     }
 
-    public function testAddTOSSignedRole()
+    public function testAddTOSSignedRole(): void
     {
         /**
-         * @var UserInterface|MockObject $user
+         * @var PostAuthenticationGuardToken|MockObject $token
          */
         $token = $this->getMockBuilder(PostAuthenticationGuardToken::class)->disableOriginalConstructor()->getMock();
         $token->expects(self::once())
