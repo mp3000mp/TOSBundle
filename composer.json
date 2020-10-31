@@ -4,7 +4,7 @@
   "description": "Simple terms of service bundle.",
   "keywords": ["TOS", "terms of service"],
   "homepage": "https://github.com/mp3000mp/TOSBundle",
-  "license": "Apache 2.0",
+  "license": "Apache-2.0",
   "authors": [
     {
       "name": "mp3000mp",
