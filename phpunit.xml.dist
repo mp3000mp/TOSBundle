@@ -24,7 +24,7 @@
             <directory>./vendor</directory>
             <directory>./var</directory>
             <directory>./ci</directory>
-            <directory>./tests</directory>
+            <directory>./Tests</directory>
             <directory>./Entity</directory>
         </exclude>
         <report>
