@@ -2,7 +2,7 @@
 
 Simple bundle that will help you forcing users to agree with terms of service before being able to use your application.
 
-[![In Progress](https://img.shields.io/badge/in%20progress-yes-red)](https://img.shields.io/badge/in%20progress-yes-red)
+![Packagist Version](https://img.shields.io/packagist/v/mp3000mp/tos-bundle?color=%230273b3)
 [![Build Status](https://travis-ci.org/mp3000mp/TOSBundle.svg?branch=master)](https://travis-ci.org/mp3000mp/TOSBundle)
 [![Coverage Status](https://coveralls.io/repos/github/mp3000mp/TOSBundle/badge.svg?branch=master)](https://coveralls.io/github/mp3000mp/TOSBundle?branch=master)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
