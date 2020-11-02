@@ -46,8 +46,12 @@ class Mp3000mpTOSService
         return $repTOS->findLast();
     }
 
-    public function getLastSignedTOS(UserInterface $user): ?TermsOfService
+    public function getLastSignedTOS(?UserInterface $user): ?TermsOfService
     {
+        if (null === $user) {
+            return null;
+        }
+
         /**
          * @var TermsOfServiceRepository $repTOS
          */
@@ -69,7 +73,7 @@ class Mp3000mpTOSService
         $session->set('_security_'.$currentProviderKey, serialize($newToken));
     }
 
-    public function persisteSignature(TermsOfService $termsOfService, UserInterface $user): TermsOfServiceSignature
+    public function persistSignature(TermsOfService $termsOfService, UserInterface $user): TermsOfServiceSignature
     {
         $tosSigned = new TermsOfServiceSignature();
         $tosSigned->setSignedAt(new \DateTime());

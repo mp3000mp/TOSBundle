@@ -50,7 +50,7 @@ class Mp3000mpTOSController extends AbstractController
                 throw new Mp3000mpTOSBundleException('This user has already signed the last terms of service.');
             }
 
-            $this->TOSService->persisteSignature($lastTos, $this->getUser());
+            $this->TOSService->persistSignature($lastTos, $this->getUser());
 
             return $this->redirect('/');
         } else {

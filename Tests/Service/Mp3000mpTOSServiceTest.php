@@ -65,12 +65,20 @@ class Mp3000mpTOSServiceTest extends TestCase
         self::assertInstanceOf(TermsOfService::class, $tos);
     }
 
-    public function testGetLastSignedTOS(): void
+    public function testGetLastSignedTOSWithUser(): void
     {
         $service = new Mp3000mpTOSService($this->em);
         $tos = $service->getLastSignedTOS($this->user);
 
         self::assertInstanceOf(TermsOfService::class, $tos);
+    }
+
+    public function testGetLastSignedTOSWithoutUser(): void
+    {
+        $service = new Mp3000mpTOSService($this->em);
+        $tos = $service->getLastSignedTOS(null);
+
+        self::assertNull($tos);
     }
 
     public function testAddTOSSignedRole(): void
@@ -107,7 +115,7 @@ class Mp3000mpTOSServiceTest extends TestCase
     {
         $service = new Mp3000mpTOSService($this->em);
         $tos = new TermsOfService();
-        $toss = $service->persisteSignature($tos, $this->user);
+        $toss = $service->persistSignature($tos, $this->user);
 
         self::assertEquals($toss->getUser(), $this->user);
         self::assertEquals($toss->getTermsOfService(), $tos);
