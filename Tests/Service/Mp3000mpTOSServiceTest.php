@@ -88,12 +88,6 @@ class Mp3000mpTOSServiceTest extends TestCase
          */
         $token = $this->getMockBuilder(PostAuthenticationGuardToken::class)->disableOriginalConstructor()->getMock();
         $token->expects(self::once())
-            ->method('getRoleNames')
-            ->willReturn([]);
-        $token->expects(self::once())
-            ->method('getUser')
-            ->willReturn($this->user);
-        $token->expects(self::once())
             ->method('getProviderKey')
             ->willReturn('main');
         $this->tokenStorage = $this->getMockBuilder(TokenStorageInterface::class)->getMock();

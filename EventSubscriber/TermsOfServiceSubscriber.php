@@ -81,7 +81,7 @@ class TermsOfServiceSubscriber implements EventSubscriberInterface
 
         if ($currentToken instanceof PostAuthenticationGuardToken
            && in_array($currentToken->getProviderKey(), $this->authenticators, true)
-           && !in_array(Mp3000mpTOSService::ROLE_TOS_SIGNED, $currentToken->getRoleNames(), true)
+           && !in_array(Mp3000mpTOSService::ROLE_TOS_SIGNED, $currentToken->getAttributes()['mp3000mp_roles'] ?? [], true)
         ) {
             /**
              * @var UserInterface $currentUser

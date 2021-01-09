@@ -107,7 +107,8 @@ class TermsOfServiceSubscriberTest extends TestCase
          * @var UserInterface|MockObject $user
          */
         $user = $this->getMockBuilder(UserInterface::class)->getMock();
-        $token = new PostAuthenticationGuardToken($user, 'main', [Mp3000mpTOSService::ROLE_TOS_SIGNED]);
+        $token = new PostAuthenticationGuardToken($user, 'main', []);
+        $token->setAttribute('mp3000mp_roles', [Mp3000mpTOSService::ROLE_TOS_SIGNED]);
         $this->tokenStorage->expects(self::once())
             ->method('getToken')
             ->willReturn($token);
