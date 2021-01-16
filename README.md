@@ -23,7 +23,7 @@ todo
 ## Installation
 
 ```sh
-composer require mp3000mp/TOSBundle
+composer require mp3000mp/tos-bundle
 ```
 
 ## Configuration
