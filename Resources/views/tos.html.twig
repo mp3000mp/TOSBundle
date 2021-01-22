@@ -5,20 +5,25 @@
 <pre style="background-color: #3f4458; color: white;"><code>
 // src/templates/bundles/Mp3000mpTOSBundle/tos.html.twig
 
+{{ "{% extends '@Mp3000mpTOS/layout.html.twig' %}" }}
+
+{{ "{% block mp3000mp_tos %}" }}
 &lt;p&gt;
         My terms of service...
 &lt;/p&gt;
 
 {{ "{% if is_granted('IS_AUTHENTICATED_FULLY') and not alreadySigned %}" }}
-&lt;form method="post" action="{{ "path('mp3000mp_tos.post')" }}"&gt;
-    &lt;p style="color: red; display: {{ "error is defined ? 'block' : 'none'" }}"&gt;{{ "'submit_error'|trans({}, 'Mp3000mpTOSBundle')" }}&lt;/p&gt;
+&lt;form method="post" action="{{ "{{ path('mp3000mp_tos.post') }}" }}"&gt;
+    &lt;p style="color: red; display: {{ "{{ error is defined ? 'block' : 'none' }}" }};"&gt;{{ "{{ 'submit_error'|trans({}, 'Mp3000mpTOSBundle') }}" }}&lt;/p&gt;
     &lt;label for="mp3000mp-tos"&gt;
         &lt;input type="checkbox" name="mp3000mp-tos" id="mp3000mp-tos" value="agreed" required="required" /&gt;
-        {{ "'i_agree'|trans({}, 'Mp3000mpTOSBundle')" }}
+        {{ "{{ 'i_agree'|trans({}, 'Mp3000mpTOSBundle') }}" }}
     &lt;/label&gt;
-    &lt;input type="submit" value="{{ "'submit_button_label'|trans({}, 'Mp3000mpTOSBundle')" }}" /&gt;
-&lt;/p&gt;
+    &lt;input type="submit" value="{{ "{{ 'submit_button_label'|trans({}, 'Mp3000mpTOSBundle') }}" }}" /&gt;
+&lt;/form&gt;
 {{ '{% endif %}' }}
+
+{{ "{% endblock %}" }}
 </code></pre>
 
 <p>
@@ -27,7 +32,7 @@
 
 {% if is_granted('IS_AUTHENTICATED_FULLY') and not alreadySigned %}
     <form method="post" action="{{ path('mp3000mp_tos.post') }}">
-        <p style="color: red; display: {{ error is defined ? 'block' : 'none' }}">{{ 'submit_error'|trans({}, 'Mp3000mpTOSBundle') }}</p>
+        <p style="color: red; display: {{ error is defined ? 'block' : 'none' }};">{{ 'submit_error'|trans({}, 'Mp3000mpTOSBundle') }}</p>
         <label for="mp3000mp-tos">
             <input type="checkbox" name="mp3000mp-tos" id="mp3000mp-tos" value="agreed" required="required" />
             {{ 'i_agree'|trans({}, 'Mp3000mpTOSBundle') }}
